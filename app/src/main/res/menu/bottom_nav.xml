@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/currentWeatherFragment"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/today"
+        />
+    <item
+        android:id="@+id/futureListWeatherFragment"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/_7_days"
+        />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="@string/settings"
+
+        />
+
+
+</menu>

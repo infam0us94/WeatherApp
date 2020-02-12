@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="today">Today</string>
+    <string name="_7_days">7 Days</string>
+    <string name="settings">Settings</string>
+    <string name="current">Current</string>
+    <string name="future_list">Future List</string>
+    <string name="loading">Loading</string>
+    <string name="_25_0">25.0</string>
+    <string name="feels_like_20_4">Feels like 20.4</string>
+    <string name="patchy_rain_possible">Patchy rain possible</string>
+    <string name="visibility_20_km">Visibility: 20 km</string>
+    <string name="wind_se_5_3_m_s">Wind SE, 5.3 m/s</string>
+    <string name="precipitation_5_mm">Precipitation: 5 mm</string>
+</resources>
