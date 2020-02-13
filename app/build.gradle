@@ -49,6 +49,10 @@ dependencies {
     implementation "com.jakewharton.threetenabp:threetenabp:1.1.0"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.3'
 
+    //FlowingDrawer
+    implementation 'com.mxn.soul:flowingdrawer-core:2.1.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
