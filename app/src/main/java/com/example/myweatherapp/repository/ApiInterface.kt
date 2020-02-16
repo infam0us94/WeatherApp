@@ -1,6 +1,6 @@
 package com.example.myweatherapp.repository
 
-import com.example.myweatherapp.repository.entity.CurrentWeathreResponce
+import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,5 +11,5 @@ interface ApiInterface {
     fun getWeatherCurrent(
         @Query("access_key") accessKey: String,
         @Query("query") query: String
-    ): Call<CurrentWeathreResponce>
+    ): Call<CurrentWeatherResponce>
 }

@@ -1,6 +1,6 @@
 package com.example.myweatherapp.repository
 
-import com.example.myweatherapp.repository.entity.CurrentWeathreResponce
+import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -28,7 +28,7 @@ class RemoteRepository: Reposytory {
     private val token = "2047f2084fcf5e998a53118916e8f45c"
     private val query = "Minsk"
 
-   override fun getWeatherCurrent(): Call <CurrentWeathreResponce> = api.getWeatherCurrent(
+   override fun getWeatherCurrent(): Call <CurrentWeatherResponce> = api.getWeatherCurrent(
       token,
        query
    )

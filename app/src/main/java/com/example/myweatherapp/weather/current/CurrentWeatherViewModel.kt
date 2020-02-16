@@ -3,7 +3,7 @@ package com.example.myweatherapp.weather.current
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myweatherapp.repository.RemoteRepository
-import com.example.myweatherapp.repository.entity.CurrentWeathreResponce
+import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,18 +11,18 @@ import retrofit2.Response
 class CurrentWeatherViewModel : ViewModel() {
     private val repository = RemoteRepository.getInstance()
 
-    val weatherListLiveData  = MutableLiveData<CurrentWeathreResponce>()
+    val weatherListLiveData  = MutableLiveData<CurrentWeatherResponce>()
 
     fun getWeatherList() {
         repository.getWeatherCurrent()
-            .enqueue(object : Callback<CurrentWeathreResponce> {
-                override fun onFailure(call: Call<CurrentWeathreResponce>, t: Throwable) {
+            .enqueue(object : Callback<CurrentWeatherResponce> {
+                override fun onFailure(call: Call<CurrentWeatherResponce>, t: Throwable) {
 
                 }
 
                 override fun onResponse(
-                    call: Call<CurrentWeathreResponce>,
-                    response: Response<CurrentWeathreResponce>
+                    call: Call<CurrentWeatherResponce>,
+                    response: Response<CurrentWeatherResponce>
                 ) {
                     weatherListLiveData.postValue(response.body())
                 }

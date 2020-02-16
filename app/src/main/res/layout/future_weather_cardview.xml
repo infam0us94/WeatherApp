@@ -81,7 +81,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent="0.15"
-            tools:src="@drawable/ic_launcher_background"
+            tools:src="@drawable/ic_brightness_6_black_24dp"
             tools:tint="#f9a920"
             />
 
