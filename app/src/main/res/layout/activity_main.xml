@@ -45,12 +45,16 @@
     <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
         android:id="@+id/menulayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
-        <FrameLayout
+        <com.google.android.material.navigation.NavigationView
             android:id="@+id/id_container_menu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:headerLayout="@layout/current_weather_item"
+
+            />
 
 
     </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>

@@ -9,6 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CurrentWeatherViewModel : ViewModel() {
+
     private val repository = RemoteRepository.getInstance()
 
     val weatherListLiveData  = MutableLiveData<CurrentWeatherResponce>()

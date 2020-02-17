@@ -7,26 +7,28 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myweatherapp.R
-import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
+import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
 
 class FutureListAdapter() :
     RecyclerView.Adapter<FutureListAdapter.ViewHolder>() {
 
-    var list = emptyList<CurrentWeatherResponce>()
+    var list = emptyList<CurrentWeatherEntry>()
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+   inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val date: TextView = itemView.findViewById(R.id.textView_date)
         private val temperature: TextView = itemView.findViewById(R.id.textView_temperature)
         private val condition: TextView = itemView.findViewById(R.id.textView_condition)
         private val conditionIcon: ImageView = itemView.findViewById(R.id.imageView_condition_icon)
 
 
-        fun bind(data: CurrentWeatherResponce) {
+        fun bind(data: CurrentWeatherEntry) {
 
-            date.text = data.location?.localtime.toString()
-            temperature.text = data.currentWeatherEntry?.temperature.toString()
-            condition.text = data.currentWeatherEntry?.weatherDescriptions.toString()
+//            val image: List<String> = data.weatherIcons
+            date.text = data.localtime
+            temperature.text = data.temperature.toString()
+            condition.text = data.weatherDescriptions.toString()
+
 //            conditionIcon.drawable = data.weatherIcons
         }
     }

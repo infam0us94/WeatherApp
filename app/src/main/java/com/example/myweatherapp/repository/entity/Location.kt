@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName
 data class Location(
     val country: String,
     val lat: String,
-    val localtime: String,
     @SerializedName("localtime_epoch")
     val localtimeEpoch: Int,
     val lon: String,

@@ -1,5 +1,6 @@
 package com.example.myweatherapp.weather.current
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.myweatherapp.R
 import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 
 class CurrentWeatherFragment : Fragment() {
@@ -29,28 +31,43 @@ class CurrentWeatherFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
-      //  viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
+//        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
         viewModel.getWeatherList()
 
     }
 
-    fun showCurrentWeather(data: CurrentWeatherEntry?) {
+    @SuppressLint("SetTextI18n")
+    fun showCurrentWeather(data: CurrentWeatherEntry) {
 
-        textView_weather_descriptions.text = data?.weatherDescriptions.toString()
-//        imageView_weather_descriptions_icon = data?.weatherIcons
-        textView_temperature.text = data?.temperature.toString()
-        textView_feels_like_temperature.text = data?.feelslike.toString()
-        textView_wind.text = data?.windSpeed.toString()
-        textView_precipitation.text = data?.precip.toString()
-        textView_visibility.text = data?.visibility.toString()
+        val weather_descriptions = data.weatherDescriptions.toString()
+        val weather_icon: String = data.weatherIcons.toString()
+        val temp = data.temperature.toString()
+        val feels_like_temp = data.feelslike.toString()
+        val wind = data.windSpeed.toString()
+        val precipitation = data.precip.toString()
+        val visibility = data.visibility.toString()
+        val wind_dir = data.windDir.toString()
+
+        textView_weather_descriptions.text = weather_descriptions
+        textView_temperature.text = "$temp \u2103 "
+        textView_feels_like_temperature.text = "Feels like $feels_like_temp \u2103"
+        textView_wind.text = "Wind $wind_dir, $wind m/s"
+        textView_precipitation.text = "Precipitation: $precipitation mm"
+        textView_visibility.text = "Visibility: $visibility km"
+        Picasso.get()
+            .load(weather_icon)
+            .fit()
+            .centerInside()
+            .into(imageView_weather_descriptions_icon)
+
+        group_loading.visibility = View.GONE
     }
 
-//    private val userListObserver = Observer<CurrentWeathreResponce> {
+//    private val userListObserver = Observer<CurrentWeatherResponce> {
 //        it.currentWeatherEntry.let { result ->
 //            if (result != null) {
 //                showCurrentWeather(result)
 //            }
-////            group_loading.visibility = View.GONE
 //        }
 //    }
 

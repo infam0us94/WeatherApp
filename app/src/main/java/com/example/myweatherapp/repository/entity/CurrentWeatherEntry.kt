@@ -7,6 +7,7 @@ data class CurrentWeatherEntry(
     val cloudcover: Int,
     val feelslike: Int,
     val humidity: Int,
+    val localtime: String,
     @SerializedName("is_day")
     val isDay: String,
     @SerializedName("observation_time")
