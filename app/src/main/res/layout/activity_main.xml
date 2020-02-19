@@ -2,14 +2,15 @@
 
 <com.mxn.soul.flowingdrawer_core.FlowingDrawer xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawerlayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
     android:clipToPadding="false"
-    app:edMenuBackground="#dddddd"
     app:edMenuSize="260dp"
-    app:edPosition="1">
+    app:edPosition="1"
+    app:edMenuBackground="@color/colorBlack">
 
 
     <LinearLayout
@@ -22,7 +23,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?colorPrimary"
             android:theme="@style/ToolbarTheme" />
 
         <fragment
@@ -38,7 +38,8 @@
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/bottom_nav" />
+            app:menu="@menu/bottom_nav"
+            />
     </LinearLayout>
 
     <!--menu-->

@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.myweatherapp.R
 import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
+import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 
@@ -31,7 +33,7 @@ class CurrentWeatherFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
-//        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
+        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
         viewModel.getWeatherList()
 
     }
@@ -46,8 +48,9 @@ class CurrentWeatherFragment : Fragment() {
         val wind = data.windSpeed.toString()
         val precipitation = data.precip.toString()
         val visibility = data.visibility.toString()
-        val wind_dir = data.windDir.toString()
+        val wind_dir = data.windDir
 
+        textView_location.text = data.location
         textView_weather_descriptions.text = weather_descriptions
         textView_temperature.text = "$temp \u2103 "
         textView_feels_like_temperature.text = "Feels like $feels_like_temp \u2103"
@@ -58,17 +61,16 @@ class CurrentWeatherFragment : Fragment() {
             .load(weather_icon)
             .fit()
             .centerInside()
-            .into(imageView_weather_descriptions_icon)
+            .into(imageView_weather_icon)
 
         group_loading.visibility = View.GONE
     }
 
-//    private val userListObserver = Observer<CurrentWeatherResponce> {
-//        it.currentWeatherEntry.let { result ->
-//            if (result != null) {
-//                showCurrentWeather(result)
-//            }
-//        }
-//    }
-
+    private val userListObserver = Observer<CurrentWeatherResponce> {
+        it.currentWeatherEntry.let { result ->
+            if (result != null) {
+                showCurrentWeather(result)
+            }
+        }
+    }
 }

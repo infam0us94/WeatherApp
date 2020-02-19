@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
         android:id="@+id/currentWeatherFragment"
         android:icon="@drawable/ic_brightness_6_black_24dp"
         android:title="@string/today"
         />
-    <item
-        android:id="@+id/futureListWeatherFragment"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="@string/_7_days"
-        />
+<!--    <item-->
+<!--        android:id="@+id/futureListWeatherFragment"-->
+<!--        android:icon="@drawable/ic_launcher_background"-->
+<!--        android:title="@string/_7_days"-->
+<!--        />-->
 
     <item
         android:id="@+id/settingsFragment"

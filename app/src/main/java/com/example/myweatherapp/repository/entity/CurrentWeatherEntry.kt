@@ -29,5 +29,18 @@ data class CurrentWeatherEntry(
     @SerializedName("wind_dir")
     val windDir: String,
     @SerializedName("wind_speed")
-    val windSpeed: Int
+    val windSpeed: Int,
+
+    val country: String,
+    val lat: String,
+    @SerializedName("localtime_epoch")
+    val localtimeEpoch: Int,
+    val lon: String,
+    @SerializedName("name")
+    val location: String,
+    val region: String,
+    @SerializedName("timezone_id")
+    val timezoneId: String,
+    @SerializedName("utc_offset")
+    val utcOffset: String
 )

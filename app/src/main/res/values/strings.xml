@@ -12,4 +12,8 @@
     <string name="visibility_20_km">Visibility: 20 km</string>
     <string name="wind_se_5_3_m_s">Wind SE, 5.3 m/s</string>
     <string name="precipitation_5_mm">Precipitation: 5 mm</string>
+    <string name="san_francisco">San Francisco</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
