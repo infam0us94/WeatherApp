@@ -33,7 +33,7 @@ class CurrentWeatherFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
-        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
+//        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
         viewModel.getWeatherList()
 
     }
@@ -66,11 +66,11 @@ class CurrentWeatherFragment : Fragment() {
         group_loading.visibility = View.GONE
     }
 
-    private val userListObserver = Observer<CurrentWeatherResponce> {
-        it.currentWeatherEntry.let { result ->
-            if (result != null) {
-                showCurrentWeather(result)
-            }
-        }
-    }
+//    private val userListObserver = Observer<CurrentWeatherResponce> {
+//        it.currentWeatherEntry.let { result ->
+//            if (result != null) {
+//                showCurrentWeather(result)
+//            }
+//        }
+//    }
 }

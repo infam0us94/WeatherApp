@@ -5,10 +5,16 @@ import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
+import com.example.myweatherapp.weather.current.CurrentWeatherFragment
+import com.example.myweatherapp.weather.current.future.list.FutureListWeatherFragment
 import com.google.android.material.navigation.NavigationView
 import com.mxn.soul.flowingdrawer_core.ElasticDrawer
 import com.mxn.soul.flowingdrawer_core.ElasticDrawer.OnDrawerStateChangeListener
@@ -55,6 +61,10 @@ class MainActivity : AppCompatActivity() {
                 Log.i("MainActivity", "openRatio=$openRatio ,offsetPixels=$offsetPixels")
             }
         })
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.menulayout, FutureListWeatherFragment.newInstance())
+            .commit()
     }
 
 //    override fun onNavigationItemSelected(p0: MenuItem): Boolean {

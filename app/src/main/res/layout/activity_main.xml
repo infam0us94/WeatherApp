@@ -52,11 +52,7 @@
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/id_container_menu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:headerLayout="@layout/current_weather_item"
-
-            />
-
+            android:layout_height="match_parent"/>
 
     </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
 

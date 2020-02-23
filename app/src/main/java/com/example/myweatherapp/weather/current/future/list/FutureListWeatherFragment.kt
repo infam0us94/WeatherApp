@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myweatherapp.R
 import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
-import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 import kotlinx.android.synthetic.main.current_weather_item.*
@@ -38,8 +37,7 @@ class FutureListWeatherFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FutureListWeatherViewModel::class.java)
         viewModel.getWeatherList()
-        viewModel.weatherListLiveData.observe(viewLifecycleOwner, listObserver)
-        viewModel.weatherListLiveData.observe(viewLifecycleOwner, weatherListObserver)
+//       viewModel.weatherListLiveData.observe(viewLifecycleOwner, weatherListObserver)
 
     }
 
@@ -71,14 +69,12 @@ class FutureListWeatherFragment : Fragment() {
             .into(imageView_weather_icon)
     }
 
-    private val weatherListObserver = Observer<CurrentWeatherResponce> { result ->
-        showData(result.result)
-    }
-    private val listObserver = Observer<CurrentWeatherResponce> {
-        it.currentWeatherEntry.let { result ->
-            if (result != null) {
-                showCurrentWeather(result)
-            }
-        }
-    }
+//    private val weatherListObserver = Observer<CurrentWeatherResponce> {
+//        it.currentWeatherEntry.let { result ->
+//            if (result != null) {
+//                showCurrentWeather(result)
+//            }
+//        }
+//        showData(it.result)
+//    }
 }
