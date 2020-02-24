@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.myweatherapp.R
 import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
 import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
+import com.example.myweatherapp.repository.entity.Location
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 
@@ -33,7 +34,7 @@ class CurrentWeatherFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
-//        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
+        viewModel.weatherListLiveData.observe(viewLifecycleOwner, userListObserver)
         viewModel.getWeatherList()
 
     }
@@ -50,7 +51,6 @@ class CurrentWeatherFragment : Fragment() {
         val visibility = data.visibility.toString()
         val wind_dir = data.windDir
 
-        textView_location.text = data.location
         textView_weather_descriptions.text = weather_descriptions
         textView_temperature.text = "$temp \u2103 "
         textView_feels_like_temperature.text = "Feels like $feels_like_temp \u2103"
@@ -66,11 +66,16 @@ class CurrentWeatherFragment : Fragment() {
         group_loading.visibility = View.GONE
     }
 
-//    private val userListObserver = Observer<CurrentWeatherResponce> {
-//        it.currentWeatherEntry.let { result ->
-//            if (result != null) {
-//                showCurrentWeather(result)
-//            }
-//        }
-//    }
+    fun showLoc(loc: Location) {
+        textView_location.text = loc.name
+    }
+
+    private val userListObserver = Observer<CurrentWeatherResponce> {
+        it.currentWeatherEntry.let { result ->
+            if (result != null) {
+                showCurrentWeather(result)
+            }
+        }
+        showLoc(it.location)
+    }
 }

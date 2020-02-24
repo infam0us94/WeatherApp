@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myweatherapp.R
 import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
+import com.example.myweatherapp.repository.entity.CurrentWeatherResponce
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.current_weather_fragment.*
 import kotlinx.android.synthetic.main.current_weather_item.*

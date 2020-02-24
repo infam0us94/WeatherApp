@@ -7,5 +7,6 @@ data class CurrentWeatherResponce(
     @SerializedName("current")
     val currentWeatherEntry: CurrentWeatherEntry? = null,
     val result: List<CurrentWeatherEntry>,
-    val request: Request? = null
+    val request: Request,
+    val location: Location
 )

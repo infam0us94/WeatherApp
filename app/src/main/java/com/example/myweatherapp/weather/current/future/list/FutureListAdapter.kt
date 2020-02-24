@@ -8,13 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myweatherapp.R
 import com.example.myweatherapp.repository.entity.CurrentWeatherEntry
+import com.example.myweatherapp.repository.entity.Location
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.future_weather_cardview.view.*
 
 class FutureListAdapter : RecyclerView.Adapter<FutureListAdapter.ViewHolder>() {
 
     var list = emptyList<CurrentWeatherEntry>()
-
+    var loc = emptyList<Location>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -26,9 +27,20 @@ class FutureListAdapter : RecyclerView.Adapter<FutureListAdapter.ViewHolder>() {
 
         fun bind(data: CurrentWeatherEntry) {
 
-            date.text = data.localtime
+            val weather_icon: String = data.weatherIcons.toString()
+
             temperature.text = data.temperature.toString()
             condition.text = data.weatherDescriptions.toString()
+            Picasso.get()
+                .load(weather_icon)
+                .fit()
+                .centerInside()
+                .into(conditionIcon)
+
+        }
+
+        fun bindLoc(loc: Location) {
+            date.text = loc.localtime
         }
     }
 
@@ -43,7 +55,8 @@ class FutureListAdapter : RecyclerView.Adapter<FutureListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val currentItem = list[position]
+        val currentLoc = loc[position]
         holder.bind(currentItem)
-
+        holder.bindLoc(currentLoc)
     }
 }
